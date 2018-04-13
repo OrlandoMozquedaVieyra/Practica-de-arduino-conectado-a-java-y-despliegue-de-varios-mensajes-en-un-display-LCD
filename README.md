@@ -18,3 +18,4 @@ esta incluida en el proyecto del repositorio.
 
 Esta incluido tambien el diagrama del circuito utilizado para este proyecto desarrollado.
 
+![diagrama del circuito](https://user-images.githubusercontent.com/22648194/38740527-6a34fffe-3efd-11e8-9600-7c3d105614b4.png)
