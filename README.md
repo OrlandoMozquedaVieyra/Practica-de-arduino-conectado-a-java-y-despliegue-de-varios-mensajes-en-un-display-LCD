@@ -1,4 +1,4 @@
-# Practica-de-arduino-conectado-a-java-y-despliegue-de-varios-mensajes-en-un-display-LCD
+# Practica de arduino conectado a java y despliegue de varios mensajes en un display LCD
 
 Se desarrollara un programa para poder hacer la comunicacion
 del arduino hacia lenguaje java. Con esto vamos a poder enviar
