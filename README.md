@@ -16,6 +16,17 @@ interfaz de comunicacion con arduino. deben incluir la libreria PanamaHitek_Ardu
 para poder hacer la conexion desde java hacia el serial del arduino. Esta libreria
 esta incluida en el proyecto del repositorio.
 
+# Se utilizara el siguiente material
+
+1. Arduino Mega o Arduino Uno.
+2. Protoboard.
+3. Cables.
+4. Sensor DHT11.
+5. Resistencias 330h.
+6. Potenciometro.
+7. Pantalla lcd 16x2.
+
+
 # Esta incluido tambien el diagrama del circuito utilizado para este proyecto desarrollado.
 
 ![diagrama del circuito](https://user-images.githubusercontent.com/22648194/38740527-6a34fffe-3efd-11e8-9600-7c3d105614b4.png)
