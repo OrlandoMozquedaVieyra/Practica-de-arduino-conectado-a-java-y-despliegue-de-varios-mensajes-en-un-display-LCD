@@ -54,32 +54,41 @@ void loop(){
     int chk = DHT.read11(DHT11_PIN);
     //Situamos el cursor en la posicion 0 de la primera linea
     lcd.setCursor(0,0); 
+    //Aqui se manda a imprimir en el lcd
     lcd.print("Temp:");
+    //Aqui se trae el valor de la temperatura del sensor DHT11 y se muestra en la lcd
     lcd.print(DHT.temperature);    
     //Editamos el simbolo de los grados º
     lcd.print((char)223);
     lcd.print("C");
     lcd.setCursor(0,1);
     lcd.print("Hum:");
+    //Aqui se trae el valor de la humedad del sensor DHT11 y se muestra en la lcd
     lcd.print(DHT.humidity);
     lcd.print("%");  
   }
   /*Aqui se lleva un contador de la hora y fecha como 
   tambien se va hacer el despliegue del mensaje en el display*/
-  if(cont == 3){            
+  if(cont == 3){  
+    //Se hace una decisión para incrementar minutos y regresar a 0 segundos y empezar de nuevo
     if(seg > 59){
       mit++;
       seg=0;  
     }
+    //Se hace una decisión para incrementar hora y regresar a 0 minutos y empezar de nuevo
     if(mit > 59){
       hor++;
       mit=0;  
+    }
+    //Se hace una decisión para iregresar a 0 hora y empezar de nuevo
+    if(hor > 23){
+      hor=0;
     }
     //Aqui se lleva una decision para poder incrementar el dia
     if(hor == 23 && mit == 59 && seg == 59){
       dia++;
     }
-    //Aqui se lleva una decision para poder incrementar el mes
+    //Aqui se lleva una decision para poder incrementar el mes depiendo si es 31, 30 o 28 dias el mes
     if(dia == 31 && mes == 1 || dia == 31 && mes == 3 || dia == 31 && mes == 5 || dia == 31 && mes == 7 || dia == 31 && mes == 8 || dia == 31 && mes == 10 && hor == 23 && mit == 59 && seg == 59){
       mes++;
       dia=1;  
@@ -102,22 +111,27 @@ void loop(){
     //Situamos el cursor en la posicion 0 de la primera linea
     lcd.setCursor(0,0); 
     lcd.print("HORA: ");
+    //Aqui se agrega un 0 si hora es menor a 10
     if(hor < 10){        
       lcd.print("0");      
     }
     lcd.print(hor);
     lcd.print(":");
+    //Aqui se agrega un 0 cuando minutos es mejor 10
     if(mit < 10){
       lcd.print("0");
     }    
     lcd.print(mit);
+    //Se hace una decisión para saber si es AM o PM dependiendo la hora
     if(hor<12){
       lcd.print(" AM");
     }else{
       lcd.print(" PM"); 
     }
-
+    
+    //Aqui se posiciona el cursor en el lcd
     lcd.setCursor(0,1);
+    //Aqui se manda a imprimir en el lcd
     lcd.print("Fecha:");
     lcd.print(dia);
     lcd.print("/");
@@ -171,13 +185,17 @@ void loop(){
   /*Iniciamos el contador del segundos para que empiece a
   contar los segundos y inicie tambien el reloj  */
   seg++;
+  //Se pone un retraso de un segundo
   delay(1000);  
 }
 
 /*Creamos este metodo para poder trasnformar la entrada que recibe en codigo ASCII
 Ponerlo el caracter que tiene en el lenguaje ASCII*/
 char Decimal_to_ASCII(int entrada){
+  //Se inicializa la salida
   char salida=' ';
+  /*Se hace una decisión para poder saber lo que llega por el serial.
+  entonces saber a pertenece en el lenguaje ASCII*/
   switch(entrada){
     case 32: 
       salida=' '; 
